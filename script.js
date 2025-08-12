@@ -74,26 +74,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const translations = {
         'ru': {
-            'langButton': 'Язык',
+            'langButton': '🗨️Язык',
             'aboutStudioTitle': '📋 О СТУДИИ:',
             'aboutStudioText': 'Мы - NDKLab, команда увлеченных разработчиков, создающая новые миры и незабываемые игровые впечатления.',
             'gamesCategory': '🎮 Наши Игры',
             'socialCategory': '👥 Социальные сети',
-            'game1Title': 'Проект: Хронос',
-            'game1Description': 'Захватывающее научно-фантастическое приключение, где вы манипулируете временем, чтобы решать головоломки и спасти галактику.',
+            'game1Title': 'Игра: Utopia',
+            'game1Description': 'Utopia — это кооперативная хоррор-игра, где вы и ваши друзья попадаете в опасный мир, полный загадок, ловушек и существ, скрывающихся в тени. Карты и события меняются каждую игру, делая каждый матч уникальным. Взаимодействуйте, спасайте друг друга и принимайте быстрые решения, чтобы остаться в живых.',
             'game2Title': 'Забытое Царство',
             'game2Description': 'Исследуйте огромный фэнтезийный мир, полный мифических существ и древних тайн. RPG-опыт, не похожий ни на что другое!',
             'steamButton': 'В Steam',
         },
        
         'en': {
-            'langButton': 'Language',
+            'langButton': '🗨️Language',
             'aboutStudioTitle': '📋 ABOUT THE STUDIO:',
             'aboutStudioText': 'We are NDKLab, a passionate team of developers dedicated to creating new worlds and unforgettable gaming experiences.',
-            'gamesCategory': '🎮 Our Games',
-            'socialCategory': '👥 Social Networks',
-            'game1Title': 'Project: Chronos',
-            'game1Description': 'A gripping sci-fi adventure where you manipulate time to solve puzzles and save the galaxy.',
+            'gamesCategory': '🎮 Наши Игры',
+            'socialCategory': '👥 Социальные сети',
+            'game1Title': 'Game: Utopia',
+            'game1Description': 'Utopia is a co-op horror game where you and your friends are trapped in a dangerous world filled with mysteries, traps, and lurking creatures. Maps and events change every match, making each run unique. Work together, save each other, and make quick decisions to survive.',
             'game2Title': 'Forgotten Realm',
             'game2Description': 'Explore a vast fantasy world, filled with mythical creatures and ancient secrets. An RPG experience like no other!',
             'steamButton': 'View on Steam',
@@ -139,4 +139,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     switchCategory('games');
+
 });
