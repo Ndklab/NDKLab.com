@@ -1,0 +1,501 @@
+/* style.css */
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+}
+@font-face {
+    font-family: 'Rajdhani';
+    src: url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #190f0f, #0a0a0a);
+    color: #e0e0e0;
+    font-family: 'Minecraft', monospace;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.sidebar {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 50;
+}
+
+.sidebar-item {
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #e0e0e0;
+    display: block;
+    font-weight: 500;
+    border-left: 5px solid transparent;
+}
+
+.sidebar-item:hover {
+    background: rgba(255, 0, 0, 0.1);
+    border-left: 5px solid #ff4d4d;
+    color: #fff;
+    transform: translateX(10px);
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 50px;
+    flex: 1;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.main-title {
+    font-size: 5rem;
+    font-family: 'Minecraft', 'Orbitron', monospace;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff4d4d, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    font-weight: 300;
+}
+
+.about-section {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.8s ease-in-out;
+}
+
+.about-avatar {
+    width: 150px;
+    height: 150px;
+    background: #1a1a1a;
+    border-radius: 0;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-avatar:hover {
+    transform: scale(1.1);
+}
+
+.about-avatar.has-image {
+    background-image: url('image/NDK.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-text h2 {
+    color: #ff4d4d;
+    margin-bottom: 15px;
+    font-family: 'Minecraft', 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.category-menu {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.category-btn {
+    position: relative;
+    background: rgba(255, 0, 0, 0.1);
+    border: 2px solid #ff4d4d;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: 'Minecraft', 'Orbitron', sans-serif;
+    font-size: 1rem;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+.category-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+}
+
+.category-btn.active {
+    background: #ff4d4d;
+    border-color: #ff0000;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.8);
+    color: #fff;
+}
+
+.language-dropdown-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.language-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    border-radius: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.language-dropdown-content a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.language-dropdown-content a:hover {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+.language-dropdown-container.active .language-dropdown-content {
+    display: block;
+}
+
+.category-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.category-content.active {
+    display: block;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.6s ease forwards;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+    border-color: #ff4d4d;
+}
+
+.game-thumbnail {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 0, 0, 0.8);
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.game-thumbnail:hover .play-button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.game-info {
+    padding: 25px;
+}
+
+.game-info h3 {
+    color: #ff4d4d;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-family: 'Minecraft', 'Orbitron', sans-serif;
+}
+
+.game-info p {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover {
+    background: #ff0000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+.social-links-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.social-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-family: 'Minecraft', 'Orbitron', monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-btn:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.4);
+    border-color: #ff4d4d;
+}
+
+.social-btn i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover i {
+    transform: scale(1.2);
+}
+
+.social-btn span {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.background-element {
+    position: fixed;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+#bg-element-1 {
+    width: 350px;
+    top: 50px;
+    left: 10%;
+    transform: rotate(30deg) scaleX(-1);
+    filter: invert(1);
+}
+
+#bg-element-2 {
+    width: 400px;
+    bottom: 80px;
+    right: 5%;
+    transform: rotate(-50deg);
+    filter: invert(1);
+}
+
+#bg-element-3 {
+    width: 250px;
+    top: 20%;
+    right: 15%;
+    transform: rotate(90deg);
+    filter: invert(1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 100px;
+    }
+    .main-content {
+        margin-left: 100px;
+        padding: 30px;
+    }
+    .main-title {
+        font-size: 3rem;
+    }
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .about-text {
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+    .sidebar-item {
+        padding: 15px 10px;
+        font-size: 0;
+        text-align: center;
+        border-left: none;
+        border-radius: 0;
+        width: 40px;
+        height: 40px;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sidebar-item::before {
+        content: '';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        font-size: 1.5rem;
+    }
+    .sidebar-item::before {
+        font-size: 1.2rem;
+    }
+    .sidebar-item[data-target="games"]::before { content: "\f11b"; }
+    .sidebar-item[data-target="social"]::before { content: "\f0ac"; }
+    
+    .sidebar-item:hover {
+        transform: scale(1.1);
+        background: #ff4d4d;
+        border-left: none;
+    }
+    .main-content {
+        margin-left: 80px;
+        padding: 20px;
+    }
+    .about-avatar {
+        width: 100px;
+        height: 100px;
+    }
+    .background-element {
+        opacity: 0.05;
+        width: 150px;
+    }
+}
