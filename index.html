@@ -1,71 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NDKLab - Innovative Gaming Experiences</title>
+    <title>NDKLab</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
-    <div class="sidebar">
-        <a href="#" class="sidebar-item" data-target="games">🎮 Our Games</a>
-        <a href="#" class="sidebar-item" data-target="social">👥 Social Networks</a>
-    </div>
-
     <div class="main-content">
         <div class="language-dropdown-container">
-            <button class="language-toggle-btn category-btn">Lang</button>
+            <button class="language-toggle-btn" data-lang-key="langButton">RU</button>
             <div class="language-dropdown-content">
-                <a href="#" data-lang="ru">RU</a>
-                
-                <a href="#" data-lang="en">EN</a>
+                <a href="#" data-lang="ru">Русский</a>
+                <a href="#" data-lang="en">English</a>
             </div>
         </div>
 
         <div class="header">
             <h1 class="main-title">NDKLab</h1>
-            <p class="subtitle">INNOVATIVE GAMING EXPERIENCES</p>
+            <p class="subtitle" data-lang-key="subtitle">Cайт студии NDKLab </p>
         </div>
     
         <div class="about-section">
-            <div class="about-avatar has-image"></div>
+            <div class="about-avatar"></div>
             <div class="about-text">
-                <h2 data-lang-key="aboutStudioTitle">📋 ABOUT THE STUDIO:</h2>
-                <p data-lang-key="aboutStudioText">We are NDKLab, a passionate team of developers creating new worlds and unforgettable gaming experiences.</p>
+                <h2 data-lang-key="aboutTitle">О СТУДИИ:</h2>
+                <p data-lang-key="aboutText">Мы - NDKLab, команда увлеченных разработчиков, создающая новые миры и незабываемые игровые впечатления.</p>
             </div>
         </div>
 
         <div class="category-menu">
-            <button class="category-btn active" data-category="games" data-lang-key="gamesCategory">🎮 Our Games</button>
-            <button class="category-btn" data-category="social" data-lang-key="socialCategory">👥 Social Networks</button>
+            <button class="category-btn active" data-category="games" data-lang-key="gamesBtn">Наши игры</button>
+            <button class="category-btn" data-category="social" data-lang-key="socialBtn">Социальные сети</button>
         </div>
 
         <div class="category-content active" id="games">
-            <div class="content-grid">
+            <div class="game-container">
                 <div class="game-card">
-                    <div class="game-thumbnail" style="background-image: url('image/game1.jpg');">
-                        <button class="play-button">▶</button>
+                    <div class="game-media-wrapper">
+                        <div class="game-media-container">
+                            <img src="image/utopia.png" alt="Utopia Game" class="game-image">
+                            <video class="game-video" loop>
+                                <source src="videos/utopia.mp4" type="video/mp4">
+                            </video>
+                            <button class="play-button">▶</button>
+                        </div>
                     </div>
                     <div class="game-info">
-                        <h3 data-lang-key="game1Title">Project: Chronos</h3>
-                        <p data-lang-key="game1Description">A gripping sci-fi adventure where you manipulate time to solve puzzles and save the galaxy.</p>
-                        <a href="https://store.steampowered.com/app/YOUR_STEAM_APP_ID" target="_blank" class="download-btn accent" data-lang-key="steamButton">
-                            <i class="fab fa-steam"></i> View on Steam
-                        </a>
-                    </div>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-thumbnail" style="background-image: url('image/game2.jpg');">
-                        <button class="play-button">▶</button>
-                    </div>
-                    <div class="game-info">
-                        <h3 data-lang-key="game2Title">Forgotten Realm</h3>
-                        <p data-lang-key="game2Description">Explore a vast fantasy world, filled with mythical creatures and ancient secrets. An RPG experience like no other!</p>
-                        <a href="https://store.steampowered.com/app/YOUR_OTHER_STEAM_APP_ID" target="_blank" class="download-btn accent" data-lang-key="steamButton">
-                            <i class="fab fa-steam"></i> View on Steam
+                        <h3 data-lang-key="gameTitle">Utopia</h3>
+                        <p data-lang-key="gameDesc">Кооперативная хоррор-игра, где вы и ваши друзья попадаете в опасный мир, полный загадок и ловушек.</p>
+                        <a href="#" class="download-btn" data-lang-key="steamBtn">
+                            <i class="fab fa-steam"></i> Steam
                         </a>
                     </div>
                 </div>
@@ -76,30 +62,24 @@
             <div class="social-links-grid">
                 <a href="https://discord.gg/VREAyGDBKt" target="_blank" class="social-btn discord">
                     <i class="fab fa-discord"></i>
-                    <span>Discord</span>
+                    <span data-lang-key="discord">Дискорд</span>
                 </a>
                 <a href="https://t.me/NDK_Lab" target="_blank" class="social-btn telegram">
                     <i class="fab fa-telegram-plane"></i>
-                    <span>Telegram</span>
+                    <span data-lang-key="telegram">Телеграм</span>
                 </a>
-                <a href="https://www.youtube.com/@NDKLab " target="_blank" class="social-btn youtube">
+                <a href="https://www.youtube.com/@NDKLab" target="_blank" class="social-btn youtube">
                     <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
+                    <span data-lang-key="youtube">Ютуб</span>
                 </a>
                 <a href="https://www.instagram.com/ndk_lab/" target="_blank" class="social-btn instagram">
                     <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
+                    <span data-lang-key="instagram">Инстаграм</span>
                 </a>
             </div>
         </div>
     </div>
 
-    <body>
-    <img src="image/бумага.png" alt="Background Element 1" class="background-element" id="bg-element-1">
-    <img src="image/бумага 2.png" alt="Background Element 2" class="background-element" id="bg-element-2">
-    <img src="image/бумага.png" alt="Background Element 3" class="background-element" id="bg-element-3">
-    </body>
-    
     <script src="script.js"></script>
 </body>
 </html>
