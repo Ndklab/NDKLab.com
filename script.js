@@ -1,143 +1,141 @@
-const categoryBtns = document.querySelectorAll('.category-btn[data-category]');
-const categoryContents = document.querySelectorAll('.category-content');
+document.addEventListener('DOMContentLoaded', function() {
+    // Category switching
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const categoryContents = document.querySelectorAll('.category-content');
 
-function switchCategory(targetCategory) {
-    categoryBtns.forEach(btn => btn.classList.remove('active'));
-    categoryContents.forEach(content => content.classList.remove('active'));
+    function switchCategory(category) {
+        categoryBtns.forEach(btn => btn.classList.remove('active'));
+        categoryContents.forEach(content => content.classList.remove('active'));
 
-    const targetBtn = document.querySelector(`[data-category="${targetCategory}"]`);
-    const targetContent = document.getElementById(targetCategory);
+        document.querySelector(`.category-btn[data-category="${category}"]`).classList.add('active');
+        document.getElementById(category).classList.add('active');
+    }
 
-    if (targetBtn) targetBtn.classList.add('active');
-    if (targetContent) targetContent.classList.add('active');
-
-    const cards = targetContent.querySelectorAll('.game-card, .social-btn');
-    cards.forEach((card, index) => {
-        card.style.animation = 'none';
-        setTimeout(() => {
-            card.style.animation = `slideUp 0.6s ease forwards`;
-            card.style.animationDelay = `${index * 0.1}s`;
-        }, 10);
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.dataset.category;
+            switchCategory(category);
+        });
     });
-}
 
-categoryBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const category = btn.dataset.category;
-        switchCategory(category);
-    });
-});
+    // Video functionality with immediate playback on hover
+    const mediaContainers = document.querySelectorAll('.game-media-container');
+    
+    mediaContainers.forEach(container => {
+        const video = container.querySelector('.game-video');
+        const playButton = container.querySelector('.play-button');
+        
+        if (video) {
+            video.load();
+            video.muted = false; // Sound enabled by default
+            video.preload = "auto"; // Предзагрузка видео
+        }
 
-document.querySelectorAll('.sidebar-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetCategory = item.dataset.target;
-        if (targetCategory) {
-            switchCategory(targetCategory);
+        // Immediate playback on hover
+        container.addEventListener('mouseenter', () => {
+            if (video) {
+                video.currentTime = 0; // Перематываем в начало
+                video.play().catch(e => console.log("Video play error:", e));
+                playButton.style.opacity = '1'; // Показываем кнопку сразу
+            }
+        });
+
+        container.addEventListener('mouseleave', () => {
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+                playButton.style.opacity = '0'; // Скрываем кнопку
+            }
+        });
+
+        if (playButton) {
+            playButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (video) {
+                    video.play().catch(e => console.log("Video play error:", e));
+                    video.controls = true;
+                }
+            });
         }
     });
 
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateX(10px)';
-    });
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateX(0)';
-    });
-});
-
-function checkImageLoad(imgElement) {
-    const img = new Image();
-    img.onload = function() {
-        imgElement.classList.add('has-image');
-    };
-    img.onerror = function() {
-        imgElement.classList.remove('has-image');
-    };
-    
-    const style = getComputedStyle(imgElement).backgroundImage;
-    if (style && style.includes('url(')) {
-        img.src = style.slice(5, -2).replace(/"/g, '');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    const aboutAvatar = document.querySelector('.about-avatar');
-    
-    if (aboutAvatar) {
-        checkImageLoad(aboutAvatar);
-    }
-
-    // Language logic
-    const langToggleBtn = document.querySelector('.language-toggle-btn');
-    const langDropdownContainer = document.querySelector('.language-dropdown-container');
-    const langOptions = document.querySelectorAll('.language-dropdown-content a');
-
+    // Остальной код (переводы и т.д.) остается без изменений
+    // Language switching
     const translations = {
         'ru': {
-            'langButton': '🗨️Язык',
-            'aboutStudioTitle': '📋 О СТУДИИ:',
-            'aboutStudioText': 'Мы - NDKLab, команда увлеченных разработчиков, создающая новые миры и незабываемые игровые впечатления.',
-            'gamesCategory': '🎮 Наши Игры',
-            'socialCategory': '👥 Социальные сети',
-            'game1Title': 'Игра: Utopia',
-            'game1Description': 'Utopia — это кооперативная хоррор-игра, где вы и ваши друзья попадаете в опасный мир, полный загадок, ловушек и существ, скрывающихся в тени. Карты и события меняются каждую игру, делая каждый матч уникальным. Взаимодействуйте, спасайте друг друга и принимайте быстрые решения, чтобы остаться в живых.',
-            'game2Title': 'Забытое Царство',
-            'game2Description': 'Исследуйте огромный фэнтезийный мир, полный мифических существ и древних тайн. RPG-опыт, не похожий ни на что другое!',
-            'steamButton': 'В Steam',
+            'langButton': 'RU',
+            'aboutTitle': 'О СТУДИИ:',
+            'aboutText': 'Мы - NDKLab, команда увлеченных разработчиков, создающая новые миры и незабываемые игровые впечатления.',
+            'gamesBtn': 'Наши игры',
+            'socialBtn': 'Социальные сети',
+            'gameTitle': 'Utopia',
+            'gameDesc': 'Кооперативная хоррор-игра, где вы и ваши друзья попадаете в опасный мир, полный загадок и ловушек.',
+            'steamBtn': 'Steam',
+            'discord': 'Дискорд',
+            'telegram': 'Телеграм',
+            'youtube': 'Ютуб',
+            'instagram': 'Инстаграм',
+            'subtitle': 'Сайт студии NDKLab'
         },
-       
         'en': {
-            'langButton': '🗨️Language',
-            'aboutStudioTitle': '📋 ABOUT THE STUDIO:',
-            'aboutStudioText': 'We are NDKLab, a passionate team of developers dedicated to creating new worlds and unforgettable gaming experiences.',
-            'gamesCategory': '🎮 Наши Игры',
-            'socialCategory': '👥 Социальные сети',
-            'game1Title': 'Game: Utopia',
-            'game1Description': 'Utopia is a co-op horror game where you and your friends are trapped in a dangerous world filled with mysteries, traps, and lurking creatures. Maps and events change every match, making each run unique. Work together, save each other, and make quick decisions to survive.',
-            'game2Title': 'Forgotten Realm',
-            'game2Description': 'Explore a vast fantasy world, filled with mythical creatures and ancient secrets. An RPG experience like no other!',
-            'steamButton': 'View on Steam',
+            'langButton': 'EN',
+            'aboutTitle': 'ABOUT US:',
+            'aboutText': 'We are NDKLab, a passionate team of developers creating new worlds and unforgettable gaming experiences.',
+            'gamesBtn': 'Our Games',
+            'socialBtn': 'Social Networks',
+            'gameTitle': 'Utopia',
+            'gameDesc': 'A co-op horror game where you and your friends must survive in a dangerous world full of mysteries and traps.',
+            'steamBtn': 'Steam',
+            'discord': 'Discord',
+            'telegram': 'Telegram',
+            'youtube': 'YouTube',
+            'instagram': 'Instagram',
+            'subtitle': 'NDKLab studio website'
         }
     };
 
     function setLanguage(lang) {
-        document.documentElement.lang = lang;
         document.querySelectorAll('[data-lang-key]').forEach(element => {
             const key = element.dataset.langKey;
             if (translations[lang] && translations[lang][key]) {
-                element.innerHTML = translations[lang][key];
+                element.textContent = translations[lang][key];
             }
         });
-        
-        if (langToggleBtn && translations[lang] && translations[lang]['langButton']) {
-            langToggleBtn.textContent = translations[lang]['langButton'];
+        const subtitle = document.querySelector('.subtitle');
+        if (subtitle && translations[lang] && translations[lang]['subtitle']) {
+            subtitle.textContent = translations[lang]['subtitle'];
         }
         localStorage.setItem('lang', lang);
     }
 
-    const storedLang = localStorage.getItem('lang') || 'en';
-    setLanguage(storedLang);
+    const langToggleBtn = document.querySelector('.language-toggle-btn');
+    const langDropdownContainer = document.querySelector('.language-dropdown-container');
+    const langOptions = document.querySelectorAll('.language-dropdown-content a');
 
-    langToggleBtn.addEventListener('click', (event) => {
-        langDropdownContainer.classList.toggle('active');
-        event.stopPropagation();
-    });
+    const savedLang = localStorage.getItem('lang') || 'ru';
+    setLanguage(savedLang);
+
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdownContainer.classList.toggle('active');
+        });
+    }
 
     langOptions.forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.preventDefault();
-            const selectedLang = option.dataset.lang;
-            setLanguage(selectedLang);
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.dataset.lang;
+            setLanguage(lang);
             langDropdownContainer.classList.remove('active');
         });
     });
 
-    window.addEventListener('click', (event) => {
-        if (!langDropdownContainer.contains(event.target)) {
-            langDropdownContainer.classList.remove('active');
-        }
+    document.addEventListener('click', function() {
+        langDropdownContainer.classList.remove('active');
     });
 
-    switchCategory('games');
-
+    langDropdownContainer.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
 });
