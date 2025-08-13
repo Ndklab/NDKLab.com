@@ -1,2 +1,0 @@
-# NDKLab.com
-NDKLab WebSite
