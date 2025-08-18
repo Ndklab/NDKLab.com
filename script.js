@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'ru': {
             'langButton': 'RU',
             'aboutTitle': 'О СТУДИИ:',
-            'aboutText': 'Мы - NDKLab, команда увлеченных разработчиков, создающая новые миры и незабываемые игровые впечатления.',
+            'aboutText': 'Мы - Vulka, это студия, занимающаяся созданием анимационных проектов и игр.',
             'gamesBtn': 'Наши игры',
             'socialBtn': 'Социальные сети',
             'gameTitle': 'Utopia',
@@ -86,12 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
             'telegram': 'Телеграм',
             'youtube': 'Ютуб',
             'instagram': 'Инстаграм',
-            'subtitle': 'Сайт студии NDKLab'
+            'subtitle': 'Сайт студии Vulka'
         },
         'en': {
             'langButton': 'EN',
             'aboutTitle': 'ABOUT US:',
-            'aboutText': 'We are NDKLab, a passionate team of developers creating new worlds and unforgettable gaming experiences.',
+            'aboutText': 'We are Vulka, a studio that creates animation projects and games.',
             'gamesBtn': 'Our Games',
             'socialBtn': 'Social Networks',
             'gameTitle': 'Utopia',
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'telegram': 'Telegram',
             'youtube': 'YouTube',
             'instagram': 'Instagram',
-            'subtitle': 'NDKLab studio website'
+            'subtitle': 'Vulka studio website'
         }
     };
 
@@ -151,4 +151,5 @@ document.addEventListener('DOMContentLoaded', function() {
     checkViewport();
     window.addEventListener('resize', checkViewport);
     switchCategory('games');
+
 });
