@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'langButton': 'RU',
             'aboutTitle': 'О СТУДИИ:',
             'aboutText': 'Мы - Vulka, это студия, занимающаяся созданием анимационных проектов и игр.',
-            'gamesBtn': 'Наши игры',
-            'socialBtn': 'Социальные сети',
+            'gamesBtn': 'Наши Проекты',
+            'socialBtn': 'Социальные Сети',
             'gameTitle': 'Utopia',
             'gameDesc': 'Кооперативная хоррор-игра, где вы и ваши друзья попадаете в опасный мир, полный загадок и ловушек.',
             'steamBtn': 'Steam',
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'langButton': 'EN',
             'aboutTitle': 'ABOUT US:',
             'aboutText': 'We are Vulka, a studio that creates animation projects and games.',
-            'gamesBtn': 'Our Games',
+            'gamesBtn': 'Our Projects',
             'socialBtn': 'Social Networks',
             'gameTitle': 'Utopia',
             'gameDesc': 'A co-op horror game where you and your friends must survive in a dangerous world full of mysteries and traps.',
@@ -153,3 +153,4 @@ document.addEventListener('DOMContentLoaded', function() {
     switchCategory('games');
 
 });
+
