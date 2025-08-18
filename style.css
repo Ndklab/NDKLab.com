@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'NDKLab';
+    font-family: 'Vulka';
     src: url('fonts/ndklab.ttf') format('truetype');
 }
 
@@ -24,7 +24,7 @@ body {
     overflow-x: hidden;
     background: linear-gradient(135deg, #190f0f, #0a0a0a);
     color: #e0e0e0;
-    font-family: 'NDKLab', sans-serif;
+    font-family: 'Vulka', sans-serif;
     line-height: 1.5;
 }
 
@@ -360,4 +360,5 @@ body {
         gap: 1rem;
         padding: 1rem;
     }
+
 }
